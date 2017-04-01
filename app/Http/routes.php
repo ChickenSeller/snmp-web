@@ -11,6 +11,9 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/','StaticAcController@GetIndex');
+Route::any('index','StaticAcController@GetAcList');
+Route::get('ac','StaticAcController@GetAcList');
+Route::get('ac-detail/{id}',function ($id){
+    return \App\Http\Controllers\DynamicAcController::GetAcDetail($id);
 });
